@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const CollapseItem = ({ removePet, name }) => {
   return (
@@ -11,6 +12,11 @@ const CollapseItem = ({ removePet, name }) => {
       />
     </li>
   );
+};
+
+CollapseItem.propTypes = {
+  removePet: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired
 };
 
 export default CollapseItem;

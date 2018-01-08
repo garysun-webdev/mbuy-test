@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CollapseItem from "./CollapseItem";
 import TransitionGroup from "react-addons-css-transition-group";
+import PropTypes from "prop-types";
 import "./CollapsePanel.css";
 
 class CollapsePanel extends Component {
@@ -105,5 +106,10 @@ class CollapsePanel extends Component {
     );
   }
 }
+
+CollapsePanel.propTypes = {
+  removePet: PropTypes.func.isRequired,
+  pets: PropTypes.array.isRequired
+};
 
 export default CollapsePanel;

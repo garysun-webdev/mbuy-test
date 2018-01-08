@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import "./App.css";
 import CollapsePanel from "./CollapsePanel";
 import Spinning from "./Spinning";
+
+import "./App.css";
 
 let nextId = 0;
 
@@ -47,7 +48,6 @@ class App extends Component {
 
   manipulateData(originData) {
     //tag gender into pets Array for each owner
-
     const originPetsWithGender = originData.map(ownerItem => {
       if (ownerItem.pets)
         return ownerItem.pets.map(pet => ({
