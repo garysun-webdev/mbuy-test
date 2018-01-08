@@ -10,6 +10,7 @@ class App extends Component {
     this.state = { pets: null };
     this.fetchData = this.fetchData.bind(this);
     this.manipulateData = this.manipulateData.bind(this);
+    this.removePet = this.removePet.bind(this);
   }
 
   componentDidMount() {
@@ -78,7 +79,7 @@ class App extends Component {
       return <div>Loading ICON</div>;
     }
 
-    return <CollapsePanel />;
+    return <CollapsePanel pets={this.state.pets} removePet={this.removePet} />;
   }
 }
 
