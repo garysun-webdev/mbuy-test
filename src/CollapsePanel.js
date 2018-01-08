@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import CollapseItem from "./CollapseItem";
+import TransitionGroup from "react-addons-css-transition-group";
+import "./CollapsePanel.css";
 
 class CollapsePanel extends Component {
   constructor() {
@@ -22,49 +24,83 @@ class CollapsePanel extends Component {
 
     const petMaleItem = this.state.maleOpened && (
       <ul>
-        {pets.map(
-          pet =>
-            pet.category === "Male" && (
-              <CollapseItem
-                key={pet.id}
-                name={pet.name}
-                removePet={() => removePet(pet.id)}
-              >
-                {pet.name}
-              </CollapseItem>
-            )
-        )}
+        <TransitionGroup
+          transitionName="fade"
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={300}
+        >
+          {pets.map(
+            pet =>
+              pet.category === "Male" && (
+                <CollapseItem
+                  key={pet.id}
+                  name={pet.name}
+                  removePet={() => removePet(pet.id)}
+                >
+                  {pet.name}
+                </CollapseItem>
+              )
+          )}
+        </TransitionGroup>
       </ul>
     );
 
     const petFemaleItem = this.state.femaleOpened && (
       <ul>
-        {pets.map(
-          pet =>
-            pet.category === "Female" && (
-              <CollapseItem
-                key={pet.id}
-                name={pet.name}
-                removePet={() => removePet(pet.id)}
-              >
-                {pet.name}
-              </CollapseItem>
-            )
-        )}
+        <TransitionGroup
+          transitionName="fade"
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={300}
+        >
+          {pets.map(
+            pet =>
+              pet.category === "Female" && (
+                <CollapseItem
+                  key={pet.id}
+                  name={pet.name}
+                  removePet={() => removePet(pet.id)}
+                >
+                  {pet.name}
+                </CollapseItem>
+              )
+          )}
+        </TransitionGroup>
       </ul>
     );
 
     return (
-      <div>
-        <p onClick={() => this.toggleOpen("Male")}>
-          {this.state.maleOpened ? <label>Open</label> : <label>Close</label>}Male:
-        </p>
-        {petMaleItem}
+      <div className="container">
+        <div className="collapse-panel" style={{ marginTop: "80px" }}>
+          {/* Header */}
+          <div
+            className="collapse-header"
+            onClick={() => this.toggleOpen("Male")}
+          >
+            {this.state.maleOpened ? (
+              <i className="fa fa-minus" aria-hidden="true" />
+            ) : (
+              <i className="fa fa-plus" aria-hidden="true" />
+            )}
+            Male
+          </div>
+          {/* Body */}
+          <div className="collapse-body">{petMaleItem}</div>
+        </div>
 
-        <p onClick={() => this.toggleOpen("Female")}>
-          {this.state.femaleOpened ? <label>Open</label> : <label>Close</label>}Female:
-        </p>
-        {petFemaleItem}
+        <div className="collapse-panel">
+          <div
+            className="collapse-header"
+            onClick={() => this.toggleOpen("Female")}
+          >
+            {this.state.femaleOpened ? (
+              <i className="fa fa-minus" aria-hidden="true" />
+            ) : (
+              <i className="fa fa-plus" aria-hidden="true" />
+            )}
+            Female
+          </div>
+          <div className="collapse-body">{petFemaleItem}</div>
+        </div>
       </div>
     );
   }

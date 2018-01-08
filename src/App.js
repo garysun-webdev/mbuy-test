@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import CollapsePanel from "./CollapsePanel";
+import Spinning from "./Spinning";
 
 let nextId = 0;
 
@@ -46,6 +47,7 @@ class App extends Component {
 
   manipulateData(originData) {
     //tag gender into pets Array for each owner
+
     const originPetsWithGender = originData.map(ownerItem => {
       if (ownerItem.pets)
         return ownerItem.pets.map(pet => ({
@@ -76,9 +78,12 @@ class App extends Component {
 
   render() {
     if (!this.state.pets) {
-      return <div>Loading ICON</div>;
+      return (
+        <div className="valign-wrapper center-align">
+          <Spinning />
+        </div>
+      );
     }
-
     return <CollapsePanel pets={this.state.pets} removePet={this.removePet} />;
   }
 }

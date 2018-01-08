@@ -2,8 +2,13 @@ import React from "react";
 
 const CollapseItem = ({ removePet, name }) => {
   return (
-    <li onClick={removePet}>
-      <label>{name}</label>
+    <li>
+      {name}
+      <i
+        onClick={removePet}
+        className="fa fa-minus-circle"
+        aria-hidden="true"
+      />
     </li>
   );
 };
