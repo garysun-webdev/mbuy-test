@@ -79,7 +79,7 @@ class App extends Component {
   render() {
     if (!this.state.pets) {
       return (
-        <div className="valign-wrapper center-align">
+        <div className="spinning-location">
           <Spinning />
         </div>
       );
