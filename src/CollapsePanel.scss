@@ -5,36 +5,44 @@
   border-radius: 10px;
   font-size: 1.5em;
   box-shadow: 3px 3px 5px #d4d4d4;
-  background: white; }
+  background: white;
+}
 
 .collapse-header {
   font-size: 22px;
   color: #9e9e9e;
-  cursor: pointer; }
-  .collapse-header i {
-    padding-right: 10px; }
+  cursor: pointer;
+  i {
+    padding-right: 10px;
+  }
+}
 
 .collapse-body {
-  padding: 0 27px; }
-  .collapse-body li {
+  padding: 0 27px;
+  li {
     background: #fda7a7;
     margin-bottom: 10px;
     border-radius: 10px;
     padding: 10px;
     color: #494949;
-    list-style: none; }
-    .collapse-body li i {
+    list-style: none;
+    i {
       float: right;
-      cursor: pointer; }
-  .collapse-body ul {
-    padding-left: 0; }
+      cursor: pointer;
+    }
+  }
+  ul {
+    padding-left: 0;
+  }
+}
 
 .fade-leave {
   transition: all 0.3s;
   -webkit-transform: translateX(0);
-  transform: translateX(0); }
-
+  transform: translateX(0);
+}
 .fade-leave.fade-leave-active {
   background: #fff;
   -webkit-transform: translateX(120%);
-  transform: translateX(120%); }
+  transform: translateX(120%);
+}
