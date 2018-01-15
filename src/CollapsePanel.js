@@ -16,12 +16,12 @@ class CollapsePanel extends Component {
 
   toggleOpen(category) {
     category === "Male"
-      ? this.setState(preState => {
-          maleOpened: !this.preState.maleOpened;
-        })
-      : this.setState(preState => {
-          femaleOpened: !this.preState.femaleOpened;
-        });
+      ? this.setState(preState => ({
+          maleOpened: !preState.maleOpened
+        }))
+      : this.setState(preState => ({
+          femaleOpened: !preState.femaleOpened
+        }));
   }
 
   render() {

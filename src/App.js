@@ -4,11 +4,10 @@ import Spinning from "./Spinning";
 
 import "./App.css";
 
-let nextId = 0;
-
 class App extends Component {
   constructor() {
     super();
+    this.nextId = 0;
     this.state = { pets: null };
     this.fetchData = this.fetchData.bind(this);
     this.manipulateData = this.manipulateData.bind(this);
@@ -52,7 +51,7 @@ class App extends Component {
       if (ownerItem.pets)
         return ownerItem.pets.map(pet => ({
           name: pet.name,
-          id: nextId++,
+          id: this.nextId++,
           category: ownerItem.gender
         }));
     });
